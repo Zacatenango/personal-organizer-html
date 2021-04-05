@@ -1,6 +1,6 @@
 "use strict";
 
-$("#donGallevante").click(function(
+$("#donGallevante").click(function()
 {
    $(this).text("Don Gallevante");
-}));
+});
