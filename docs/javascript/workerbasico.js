@@ -1,5 +1,3 @@
-"use strict";
-
 var X = 0;
 
 onmessage = function(kk)
