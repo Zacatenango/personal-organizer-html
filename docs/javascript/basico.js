@@ -17,18 +17,18 @@ function cargarFirebase()
    // la promesa se cumple
    // Según Google, el siguiente código se usa para cargar el valor de una promesa; pero
    // a mí me funciona más bien con await.
-   /*datos_promesa.then(function(snapshot)
+   datos_promesa.then(function(snapshot)
    {
       if (snapshot.exists())
       {
          datos = snapshot.val();
       }
-   });*/
+   });
 
    // await en ECMAscript 2020 sirve para esperar a que se cumpla una promesa y
    // carga a la vez su valor
-   datos_kk = await datos_promesa;
-   var datos = datos_kk.node_.value_;
+   //datos_kk = await datos_promesa;
+   //var datos = datos_kk.node_.value_;
 
    // Ahora sí, presento mis datos
    $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
