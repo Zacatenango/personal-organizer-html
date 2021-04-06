@@ -17,6 +17,9 @@ function contar(segundos)
    if (X < segundos)
       setTimeout(contar, 1000, segundos);
    else
+   {
       X = 0;
+      terminate();
+   }
 }
 

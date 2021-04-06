@@ -59,6 +59,7 @@ function webworker()
          $("#donGallevante").text(textito);
          console.log(textito);
       }
+      hilo.postMessage(prompt("Duración del timer"));
    }
 }
 
