@@ -27,7 +27,7 @@ function cargarFirebase()
 
    // await en ECMAscript 2020 sirve para esperar a que se cumpla una promesa y
    // carga a la vez su valor
-   var datos_kk = await datos_promesa;
+   datos_kk = await datos_promesa;
    var datos = datos_kk.node_.value_;
 
    // Ahora sí, presento mis datos
