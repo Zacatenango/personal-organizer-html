@@ -26,7 +26,7 @@ function cargarFirebase()
 
    // Ahora sí, presento mis datos
    $(this).text(`firebaseDB[kk] = ${datos}`);
-});
+}
 
 function webworker()
 {
