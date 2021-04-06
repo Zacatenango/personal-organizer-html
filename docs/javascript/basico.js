@@ -17,5 +17,11 @@ function webworker()
    else
    {
       const hilo = new Worker("workerbasico.js");
+      hilo.onmessage = function(kk)
+      {
+         textito = `Han pasado ${kk.data} segundos`;
+         $("#donGallevante").text(textito);
+         console.log(textito);
+      }
    }
 }
