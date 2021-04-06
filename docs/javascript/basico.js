@@ -23,6 +23,8 @@ function cargarFirebase()
       if (snapshot.exists())
       {
          datos = snapshot.val();
+         // Ahora sí, presento mis datos
+         $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
       }
    });
 
@@ -31,8 +33,7 @@ function cargarFirebase()
    //datos_kk = await datos_promesa;
    //var datos = datos_kk.node_.value_;
 
-   // Ahora sí, presento mis datos
-   $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
+   
 }
 
 function webworker()
