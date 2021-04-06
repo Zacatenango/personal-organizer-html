@@ -55,7 +55,7 @@ function webworker()
       const hilo = new Worker("javascript/workerbasico.js");
       hilo.onmessage = function(kk)
       {
-         textito = `Han pasado ${kk.data} segundos`;
+         var textito = `Han pasado ${kk.data} segundos`;
          $("#donGallevante").text(textito);
          console.log(textito);
       }
