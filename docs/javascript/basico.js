@@ -17,6 +17,7 @@ function cargarFirebase()
    // la promesa se cumple
    // Según Google, el siguiente código se usa para cargar el valor de una promesa; pero
    // a mí me funciona más bien con await.
+   var datos = null;
    datos_promesa.then(function(snapshot)
    {
       if (snapshot.exists())
