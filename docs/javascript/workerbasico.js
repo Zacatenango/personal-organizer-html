@@ -20,7 +20,3 @@ function contar(segundos)
       X = 0;
 }
 
-$("#btnWebWorker").click(webworker);
-$("#btnCargarFirebase").click(cargarFirebase);
-$("#btnGuardarFirebaseNuevo").click(guardarFirebaseNuevo);
-$("#btnGuardarFirebaseSobreescribir").click(guardarFirebaseSobreescribir);
