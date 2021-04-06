@@ -134,9 +134,20 @@
        
              <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
        
-             <h2 id="donGallevante">
+             <h2>
                 Section title
-                <button type="button" class="btn btn-outline-secondary" onclick="">Acción 1</button>
+               <button type="button" class="btn btn-outline-primary" onclick="webworker()">
+                  Arrancar worker
+               </button>
+               <button type="button" class="btn btn-outline-primary" onclick="cargarFirebase()">
+                   Cargar de Firebase
+               </button>
+               <button type="button" class="btn btn-outline-primary" onclick="guardarFirebaseNuevo()">
+                  Guardar en Firebase (nuevo)
+               </button>
+               <button type="button" class="btn btn-outline-primary" onclick="guardarFirebaseSobreescribir()">
+                  Guardar en Firebase (sobreescribir)
+               </button>
              </h2>
              <div class="table-responsive">
                <table class="table table-striped table-sm">
