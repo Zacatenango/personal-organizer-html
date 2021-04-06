@@ -1,5 +1,6 @@
 "use strict";
 
+
 function cargarFirebase()
 {
    // Inicializo mi base de datos Realtime Database
