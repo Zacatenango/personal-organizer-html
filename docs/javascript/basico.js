@@ -52,7 +52,7 @@ function webworker()
    }
    else
    {
-      const hilo = new Worker("workerbasico.js");
+      const hilo = new Worker("javascript/workerbasico.js");
       hilo.onmessage = function(kk)
       {
          textito = `Han pasado ${kk.data} segundos`;
