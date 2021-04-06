@@ -22,8 +22,8 @@ function cargarFirebase()
       if (snapshot.exists())
       {
          // Ahora sí, presento mis datos
-         // NOTA: La presentación de datos debe hacerse toda aquí adentro, porque las promesas son asíncronas
-         // y este código es el que corre sincronizado
+         // NOTA: La presentación de datos debe hacerse toda aquí adentro, porque las 
+         // promesas son asíncronas y este código es el que corre sincronizado
          datos = snapshot.val();
          $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
       }
@@ -34,6 +34,8 @@ function guardarFirebaseNuevo()
 {
    var firebaseDB_ref = firebase.database().ref();
    var kk = prompt("Textito a guardar");
+   // Nota: usar push() genera una clave aleatoria. Investigar cómo generar una
+   // clave secuencial 
    firebaseDB_ref.child("posts").push(kk);
 }
 
@@ -41,6 +43,7 @@ function guardarFirebaseSobreescribir()
 {
    var firebaseDB_ref = firebase.database().ref();
    var kk = prompt("Textito a guardar");
+   // Sintaxis: firebaseDB_ref.update({ "/path/hacia/elemento": <valor nuevo> });
    firebaseDB_ref.update({"/kk": kk});
 }
 
@@ -63,6 +66,9 @@ function webworker()
    }
 }
 
+// Sección de asignar funciones a los botones
+// En ECMAscript, <button onclick=""> es chafa; se debe usar por lo menos 
+// $("#boton").click()
 $("#btnWebWorker").click(webworker);
 $("#btnCargarFirebase").click(cargarFirebase);
 $("#btnGuardarFirebaseNuevo").click(guardarFirebaseNuevo);
