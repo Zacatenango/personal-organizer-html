@@ -55,3 +55,8 @@ function guardarFirebaseSobreescribir()
 {
 
 }
+
+$("#btnWebWorker").click(webworker);
+$("#btnCargarFirebase").click(cargarFirebase);
+$("#btnGuardarFirebaseNuevo").click(guardarFirebaseNuevo);
+$("#btnGuardarFirebaseSobreescribir").click(guardarFirebaseSobreescribir);
