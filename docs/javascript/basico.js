@@ -15,14 +15,19 @@ function cargarFirebase()
    // valor.
    // then() es una función que recibe como parámetro una función que se corre cuando
    // la promesa se cumple
-   var datos = null;
-   datos_promesa.then(function(snapshot)
+   // Según Google, el siguiente código se usa para cargar el valor de una promesa; pero
+   // a mí me funciona más bien con await.
+   /*datos_promesa.then(function(snapshot)
    {
       if (snapshot.exists())
       {
          datos = snapshot.val();
       }
-   });
+   });*/
+
+   // await en ECMAscript 2020 sirve para esperar a que se cumpla una promesa y
+   // carga a la vez su valor
+   var datos = (await datos_promesa).node_.value;
 
    // Ahora sí, presento mis datos
    $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
