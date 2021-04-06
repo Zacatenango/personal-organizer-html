@@ -5,7 +5,7 @@ $("#donGallevante").click(function()
    //$(this).text("Don Gallevante");
    var firebaseDB = firebase.database();
 var datos = firebaseDB.child("kk").get();
-alert(datos);
+$(this).text(datos);
 });
 
 
