@@ -32,14 +32,14 @@ function cargarFirebase()
 function guardarFirebaseNuevo()
 {
    var firebaseDB_ref = firebase.database().ref();
-   kk = prompt("Textito a guardar");
+   var kk = prompt("Textito a guardar");
    firebaseDB_ref.child("posts").push(kk);
 }
 
 function guardarFirebaseSobreescribir()
 {
    var firebaseDB_ref = firebase.database().ref();
-   kk = prompt("Textito a guardar");
+   var kk = prompt("Textito a guardar");
    firebaseDB_ref.update({"/kk": kk});
 }
 
