@@ -12,28 +12,35 @@ function cargarFirebase()
 
    // Pero todavía no puedo usar esos datos, porque vienen en forma de promesa. Es necesario
    // esperar a que la promesa se cumpla (que es cuando ya se cargaron) y extraer su
-   // valor.
+   // valor. 
    // then() es una función que recibe como parámetro una función que se corre cuando
    // la promesa se cumple
-   // Según Google, el siguiente código se usa para cargar el valor de una promesa; pero
-   // a mí me funciona más bien con await.
    var datos = null;
    datos_promesa.then(function(snapshot)
    {
       if (snapshot.exists())
       {
-         datos = snapshot.val();
          // Ahora sí, presento mis datos
+         // NOTA: La presentación de datos debe hacerse toda aquí adentro, porque las promesas son asíncronas
+         // y este código es el que corre sincronizado
+         datos = snapshot.val();
          $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
       }
    });
+}
 
-   // await en ECMAscript 2020 sirve para esperar a que se cumpla una promesa y
-   // carga a la vez su valor
-   //datos_kk = await datos_promesa;
-   //var datos = datos_kk.node_.value_;
+function guardarFirebaseNuevo()
+{
+   var firebaseDB_ref = firebase.database().ref();
+   kk = prompt("Textito a guardar");
+   firebaseDB_ref.child("posts").push(kk);
+}
 
-   
+function guardarFirebaseSobreescribir()
+{
+   var firebaseDB_ref = firebase.database().ref();
+   kk = prompt("Textito a guardar");
+   firebaseDB_ref.update({"/kk": kk});
 }
 
 function webworker()
@@ -52,16 +59,6 @@ function webworker()
          console.log(textito);
       }
    }
-}
-
-function guardarFirebaseNuevo()
-{
-
-}
-
-function guardarFirebaseSobreescribir()
-{
-
 }
 
 $("#btnWebWorker").click(webworker);
