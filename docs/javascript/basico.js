@@ -25,7 +25,7 @@ function cargarFirebase()
    });
 
    // Ahora sí, presento mis datos
-   $("#donGallevante").text(`firebaseDB[kk] = ${datos_promesa}`);
+   $("#donGallevante").text(`firebaseDB[kk] = ${datos}`);
 }
 
 function webworker()
