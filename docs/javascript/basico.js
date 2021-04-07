@@ -66,6 +66,19 @@ function webworker()
    }
 }
 
+function worker_cronometro()
+{
+   cost hilo = new Worker("javascript/worker cronómetro.js");
+   hilo.onmessage = function(kk)
+   {
+      segundos = kk.data;
+      if (segundos == "Terminat!")
+      {
+         hilo.terminate();
+      }
+   }
+} 
+
 // Sección de asignar funciones a los botones
 // En ECMAscript, <button onclick=""> es chafa; se debe usar por lo menos 
 // $("#boton").click()
@@ -73,3 +86,4 @@ $("#btnWebWorker").click(webworker);
 $("#btnCargarFirebase").click(cargarFirebase);
 $("#btnGuardarFirebaseNuevo").click(guardarFirebaseNuevo);
 $("#btnGuardarFirebaseSobreescribir").click(guardarFirebaseSobreescribir);
+$("#btnCronometro").click(worker_cronometro);
