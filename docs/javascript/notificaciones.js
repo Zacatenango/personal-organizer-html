@@ -1,7 +1,5 @@
 "use strict";
 
-$("#btnNotificacion").click(iNotify);
-
 function iNotify()
 {
    if (!("Notification" in window))
@@ -14,3 +12,5 @@ function iNotify()
       var notificacion = new Notification("Don Guilluvina", { body: "Don Disersa" });
    }
 }
+
+$("#btnNotificacion").click(iNotify);
