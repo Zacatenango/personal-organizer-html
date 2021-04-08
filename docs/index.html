@@ -21,6 +21,11 @@
       
       <!--Dependencias: CSS personalizado para un dashboard - https://getbootstrap.com/docs/5.0/examples/dashboard/ código fuente de la página -->
       <link href="bootstrap-dashboard.css" rel="stylesheet">
+      
+      <!--Stylesheet de barras de progreso circulares-->
+      <!--TODO Estudiar este CSS con la tirada de que no interfiera con una progressbar recta -->
+      <link rel="stylesheet" href="CSS/progressbars-redondas.css">
+      
 
    </head>
    
@@ -119,7 +124,31 @@
        
            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-               <h1 class="h2">Dashboard</h1>
+               <h1 class="h2">
+                  Dashboard
+                  <div class="progress blue"> 
+                     <span class="progress-left"> 
+                        <span class="progress-bar">
+                        </span> 
+                     </span> 
+                     <span class="progress-right"> 
+                        <span class="progress-bar">
+                        </span> 
+                     </span>
+                     <div class="progress-value">90%</div>
+                  </div>
+                  <div class="progress yellow"> 
+                     <span class="progress-left"> 
+                        <span class="progress-bar">
+                        </span> 
+                     </span> 
+                     <span class="progress-right"> 
+                        <span class="progress-bar">
+                        </span> 
+                     </span>
+                     <div class="progress-value">37.5%</div>
+                  </div>
+               </h1>
                <div class="btn-toolbar mb-2 mb-md-0">
                  <div class="btn-group me-2">
                    <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -138,6 +167,9 @@
                <span id="donGallevante">Section title</span>
                <button id="btnWebWorker" type="button" class="btn btn-outline-primary" >
                   Arrancar worker
+               </button>
+               <button id="btnCronometro" type="button" class="btn btn-outline-success" >
+                  Cronómetro 
                </button>
                <button id="btnCargarFirebase" type="button" class="btn btn-outline-primary" >
                    Cargar de Firebase
