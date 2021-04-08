@@ -15,7 +15,7 @@ function contar(_param_segundosRecibidos)
    segundos++;
 
    // Si no ha expirado el timer:
-   if (segundos < _param_segundosRecibidos)
+   if (segundos <= _param_segundosRecibidos)
    {
       // Transmito el contenido del timer
       postMessage(segundos);
