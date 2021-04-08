@@ -68,15 +68,29 @@ function webworker()
 
 function worker_cronometro()
 {
-   const hilo = new Worker("javascript/worker cronómetro.js");
-   hilo.onmessage = function(kk)
+   // Antes que nada, declaro mi event handler.
+   // Puedo hacerlo en caliente, pero es más ordenado declararlo de antemano 
+   // (para que no se confundan las declaraciones con los procedimientos)
+   function _worker_cronometro_procesarMensaje(kk)
    {
       segundos = kk.data;
+      // Si el mensaje dice "Terminat!", corto el hilo
       if (segundos == "Terminat!")
-      {
          hilo.terminate();
+      // De lo contrario, actualizo la barra de progreso
+      else
+      {
+         //
       }
    }
+   
+   // Creo mi hilo
+   const hilo = new Worker("javascript/worker-cronometro.js");
+
+   // Añado al handle de mi hilo un event handler para procesar los mensajes que éste manda
+   hilo.onmessage = _worker_cronometro_procesarMensaje;
+
+   // Luego 
 } 
 
 // Sección de asignar funciones a los botones
