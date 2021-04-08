@@ -2,7 +2,8 @@
 
 var X = 0;
 
-// Para manejar los mensajes recibidos (interrupciones al worker), asigno una función al evento onmessage
+// Para manejar los mensajes recibidos (interrupciones al worker), asigno una función al evento 
+// onmessage
 onmessage = function(kk)
 {
    console.log("Worker: interrupción recibida del script principal");
@@ -13,7 +14,8 @@ onmessage = function(kk)
 
 // Para pasar información al hilo principal, uso postMessage()
 // Con setTimeout() pongo una función para correr después de un tiempo
-// En este caso, pongo mi misma función para correr un segundo después si no ha pasado todavía el tiempo máximo
+// En este caso, pongo mi misma función para correr un segundo después si no ha pasado todavía 
+// el tiempo máximo
 function contar(segundos)
 {
    X++;

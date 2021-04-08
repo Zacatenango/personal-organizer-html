@@ -71,26 +71,39 @@ function worker_cronometro()
    // Antes que nada, declaro mi event handler.
    // Puedo hacerlo en caliente, pero es más ordenado declararlo de antemano 
    // (para que no se confundan las declaraciones con los procedimientos)
-   function _worker_cronometro_procesarMensaje(kk)
+   function _worker_cronometro_procesarMensajeDesdeHilo(kk)
    {
-      segundos = kk.data;
+      var segundos = kk.data;
       // Si el mensaje dice "Terminat!", corto el hilo
       if (segundos == "Terminat!")
          hilo.terminate();
+         
       // De lo contrario, actualizo la barra de progreso
       else
       {
-         //
+         // Saco cuánto % del total de segundos es el tiempo transcurrido
+         var segundos_porcentaje = segundos / max_segundos;
+
+         // Actualizo en base a eso la anchura de la parte rellena de la progressbar
+         $("#progress-interno").css("width", `${Math.round(segundos_porcentaje * 100)}%`);
+         
+         // Luego actualizo la etiqueta de la progressbar
+         $("#progress-interno").text(`${segundos} s / ${max_segundos} s`);
       }
    }
    
+   // Ahora que he declarado mi event handler, comienzo ahora sí con el worker
+   // Comienzo preguntando por cuántos segundos debe ser el cronómetro
+   var max_segundos = prompt("¿Cuántos segundos debe durar el cronómetro?");
+
    // Creo mi hilo
    const hilo = new Worker("javascript/worker-cronometro.js");
 
-   // Añado al handle de mi hilo un event handler para procesar los mensajes que éste manda
-   hilo.onmessage = _worker_cronometro_procesarMensaje;
+   // Añado al handle de mi hilo el event handler que declaré previamente
+   hilo.onmessage = _worker_cronometro_procesarMensajeDesdeHilo;
 
-   // Luego 
+   // Luego pateo el hilo con los segundos que debe contar
+   hilo.postMessage(max_segundos);
 } 
 
 // Sección de asignar funciones a los botones
