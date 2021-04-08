@@ -25,9 +25,8 @@ function contar(_param_segundosRecibidos)
    }
    else // Si ya expiró:
    {
-      // Borro el timer
+      // Borro el timer y transmito el fin del timer para que el event handler corte el hilo
       segundos = 0;
-      // Transmito el fin del timer para que el event handler corte el hilo
       postMessage("Terminat!");
    }
 }
