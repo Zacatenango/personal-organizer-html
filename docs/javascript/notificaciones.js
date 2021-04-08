@@ -7,9 +7,16 @@ function iNotify()
       alert("Su Internet Explorer no soporta notificaciones");
       return;
    }
-   else if (Notification.permission === "granted")
+   else 
    {
-      var notificacion = new Notification("Don Guilluvina", { body: "Don Disersa" });
+      if (Notification.permission === "granted")
+      {
+         var notificacion = new Notification("Don Guilluvina", { body: "Don Disersa" });
+      }
+      else
+      {
+         Notification.requestPermission();
+      }
    }
 }
 
