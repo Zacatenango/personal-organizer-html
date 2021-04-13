@@ -4,5 +4,10 @@ import { interactividad_mostrarSeccion } from "/personal-organizer-html/javascri
 
 export function navbar_mostrarConfiguracion()
 {
-   interactividad_mostrarSeccion("");
+   interactividad_mostrarSeccion("cuerpo-configuracion");
+}
+
+export function navbar_mostrarInicio()
+{
+   interactividad_mostrarSeccion("cuerpo-inicio");
 }
